@@ -7,7 +7,7 @@
 	<body>
 		<nav>
     		<ul>
-        		<li><a href="/">Home</a></li>
+        		<li><a href="index.html">Home</a></li>
 	        	<li><a href="/about">About</a></li>
         		<li><a href="/cv">CV</a></li>
         		<li><a href="blog.html">Blog</a></li>
@@ -21,6 +21,26 @@
 			<a>https://github.com/nvietsang/Predict-House-Price</a>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
+
+		<h1>Create Desktop Application In Ubuntu With .sh File</h1>
+
+		<h2>Step 1: Create file [appname].desktop in ~/.local/share/application</h2>
+		<code>		
+		touch ~/.local/share/application/android.desktop
+		</code>		
+		<h2>Step 2: modify .desktop file created</h2>
+		<code>		
+		gedit ~/.local/share/application/android.desktop
+		</code>		
+		<h2>Step 3: Add these code into file .desktop</h2>
+		<code>		
+		[Desktop Entry]<br>
+		Type=Application<br>
+		Terminal=false<br>
+		Name=[nameapp]<br>
+		Icon=[path-of-icon-svg]/[namesvg].svg<br>
+		Exec=[path-of-app-sh]/[namesh].sh
+		</code>
 		<footer>
     		<ul>
         		<li><a href="mailto:anhndd1510@gmail.com">email</a></li>

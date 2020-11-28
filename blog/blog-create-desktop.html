@@ -1,0 +1,21 @@
+
+<h1>Create Desktop Application In Ubuntu With .sh File</h1>
+
+<h2>Step 1: Create file [appname].desktop at ~/.local/share/application</h2>
+<code>		
+touch ~/.local/share/application/android.desktop
+</code>		
+<h2>Step 2: modify .desktop file created</h2>
+<code>		
+gedit ~/.local/share/application/android.desktop
+</code>		
+<h2>Step 3: Add these code into file .desktop</h2>
+<code>		
+[Desktop Entry]<br>
+Type=Application<br>
+Terminal=false<br>
+Name=[nameapp]<br>
+Icon=[path-of-icon-svg]/[namesvg].svg<br>
+Exec=[path-of-app-sh]/[namesh].sh
+</code>
+		

@@ -11,6 +11,7 @@
 <head>
 	<title>Home - Nguyen Do Duc Anh</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="lib/jquery.min-1.7.1.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -32,25 +33,13 @@
 	</div>
 
 
+	<br />
 	<div>
-		<h3>Ubuntu</h3>
-		<li><a href="blg_template.html?dir=ubuntu&file=blog-create-desktop"
-				style="color: blue; font-size: large;">Create Desktop Application In
-				Ubuntu With .sh File</a></li>
-	</div>
-	<div>
-		<h3>Artificial Intelligence</h3>
-		<li><a href="blg_.html" style="color: blue; font-size: large;">Heuristic Search A*</a><br /></li>
-		<li><a href="blg_.html" style="color: blue; font-size: large;">hill-climbing Method</a></li>
-		<li><a href="blg_template.html?dir=AI&file=blog-simulatedannealing"
-				style="color: blue; font-size: large;">Simulated Annuealing Algorithm</a></li>
+		<a href="blog.html" style="color: red; font-size: x-large;">Back</a>
 	</div>
 
-	<div>
-		<h3>Cyptography</h3>
-		<li><a href="blg_template.html?dir=crypto&file=blog-Fermat-algorithm&height=600"
-				style="color: blue; font-size: large;">Fermat Algorithm</a></li>
-	</div>
+	<iframe id="idframe" style="border-style: none;width: 100%;"></iframe>
+
 
 	<footer>
 		<ul>
@@ -61,3 +50,19 @@
 </body>
 
 </html>
+<script type="text/javascript">
+	$(document).ready(function () {
+		const urlParams = new URLSearchParams(window.location.search);
+		var dir = urlParams.get('dir')
+		var file = urlParams.get('file')
+		var height = urlParams.get('height')
+		if (dir != undefined && file != undefined) {
+			$("#idframe").attr("src", "blog/" + dir + "/" + file + ".html");
+			if(height != undefined) {
+				$("#idframe").attr("height", height + "px");
+			} else {
+				$("#idframe").attr("height", "500px");
+			}
+		}
+	});
+</script>

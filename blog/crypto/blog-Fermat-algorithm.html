@@ -1,0 +1,36 @@
+<h1>Fermat Algorithm</h1>
+
+<h2>This page introduces the algorithm which helps find 2 prime number p and q by n</h2>
+<pre>
+    <code>
+        t &#x2190; &#x2308;&radic;<span style="text-decoration: overline">n</span>&#x2309;
+        z &#x2190; t<sup>2</sup> - n
+        When z is not a square:
+            t &#x2190; t + 1
+            z &#x2190; t<sup>2</sup> - n
+        return p = t + &radic;<span style="text-decoration: overline">z</span>
+    </code>
+</pre>
+
+<p>For example, n = 51983</p>
+<p>1. t = &#x2308;&radic;<span style="text-decoration: overline">n</span>&#x2309; = 228</p>
+<p>2. z = t<sup>2</sup> - n = 1 (which is a square)</p>
+<p>3. => p = t + &radic;<span style="text-decoration: overline">z</span> = 228 + 1 = 229</p>
+<p>4. => q = n/p = 227</div>
+
+
+<style>
+    pre {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+        margin-bottom: 10px;
+        overflow: auto;
+        width: auto;
+        padding: 5px;
+        font-size: 20px;
+        border: 2px solid grey;
+        background-color: #eee;
+        width: 650px !ie7;
+        padding-bottom: 20px !ie7;
+        max-height: 600px;
+    }
+</style>

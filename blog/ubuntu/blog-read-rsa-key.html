@@ -1,31 +1,36 @@
 
-<h1>Create Desktop Application In Ubuntu With .sh File</h1>
+<h1>Read RSA Key In Ubuntu</h1>
 
 <div>
-<p>Step 1: Create file [appname].desktop at ~/.local/share/application</p>
+<p>Read private key normally</p>
 <pre style="background-color: #000; color: #fff">
-touch ~/.local/share/application/[nameapp].desktop
-</pre>
-</div>	
-
-<div>
-<p>Step 2: modify .desktop file created</p>
-<pre style="background-color: #000; color: #fff">
-gedit ~/.local/share/application/[nameapp].desktop
+openssl rsa -noout -text -in key.private
 </pre>
 </div>
 
 <div>
-<p>Step 3: Add these code into file .desktop</p>
-<pre style="background-color: #fff;">
-[Desktop Entry]
-Type=Application
-Terminal=false
-Name=[nameapp]
-Icon=[path-of-icon-svg]/[namesvg].svg
-Exec=[path-of-app-sh]/[namesh].sh
+<p>Read public key normally</p>
+<pre style="background-color: #000; color: #fff">
+openssl rsa -noout -text -inform PEM -in key.pub -pubin
 </pre>
 </div>
+
+<div>
+<p>NOTE: To read the modulus in decimal, load it in heximal</p>
+<pre style="background-color: #000; color: #fff">
+openssl rsa -in key.pem -modulus -noout
+</pre>
+</div>
+
+<div>
+<p>Then copy the output in hex value to convert into decimal</p>
+<pre style="background-color: #000; color: #fff">
+echo '[hex value]' | bc
+</pre>
+</div>
+
+
+
 
 <style>
     pre {

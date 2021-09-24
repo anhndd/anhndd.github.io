@@ -1,22 +1,17 @@
 
-<h1>Change Default Termial To Terminator Right Click</h1>
+<h1>Save Token Github For The Next Pushing</h1>
 
 <div>
-<p>Step 1: open file ~/.bashrc to modify</p>
+<p>Step 1: create file ~/.netrc to save personal token from Github</p>
 <pre style="background-color: #000; color: #fff">
-sudo gedit ~/.bashrc
+touch ~/.netrc
 </pre>
 </div>	
 
 <div>
-<p>Step 2: Add following code into ~/.bashrc</p>
+<p>Step 2: Add following code into ~/.netrc</p>
 <pre style="background-color: #fff;">
-# change default terminal to terminator right click
-if ps -o cmd= -p $(ps -o ppid= -p $$) | grep -q gnome; then
-  nohup terminator &> /dev/null &
-  sleep 0.1s
-  exit
-fi
+machine github.com login [username] password [personal-token]
 </pre>
 </div>
 

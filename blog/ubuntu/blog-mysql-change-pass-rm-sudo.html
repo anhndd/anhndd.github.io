@@ -1,0 +1,44 @@
+
+<h1>Remove sudo and Change PWD of user MySQL</h1>
+
+<div>
+<p>Remove sudo when access MySQL</p>
+<pre style="background-color: #000; color: #fff">
+sudo mysql -u root
+mysql> USE mysql;
+mysql> UPDATE user SET plugin='mysql_native_password' WHERE User='root';
+mysql> FLUSH PRIVILEGES;
+mysql> exit;
+sudo service mysql restart
+</pre>
+</div>
+
+<div>
+<p>Change PWD user in MySQL</p>
+<pre style="background-color: #000; color: #fff">
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyN3wP4ssw0rd';
+flush privileges;
+exit;
+</pre>
+</div>
+
+
+
+
+
+<style>
+    pre {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+        margin-bottom: 10px;
+        overflow: auto;
+        width: auto;
+        padding: 5px;
+        font-size: 20px;
+        border: 2px solid grey;
+        background-color: #eee;
+        width: 650px !ie7;
+        padding-bottom: 20px !ie7;
+        max-height: 600px;
+
+    }
+</style>

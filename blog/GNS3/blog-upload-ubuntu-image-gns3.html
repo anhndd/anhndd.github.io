@@ -1,0 +1,33 @@
+<h1>Quickly Upload An Ubuntu Image to GNS3 Using Command</h1>
+
+<div>
+    <p>Step 1: Copy the Ubuntu image (e.g., .vmdk file) and its checksum to GNS3 image folder</p>
+    <pre style="background-color: #000; color: #fff">
+cp Ubuntu(64-bit).vmdk ~/GNS3/images/QEMU/Ubuntu[your-ubuntu-version].vmdk
+cp Ubuntu(64-bit).vmdk.md5sum ~/GNS3/images/QEMU/Ubuntu[your-ubuntu-version].vmdk.md5sum
+    </pre>
+    </div>
+    
+    <div>
+    <p>Step 2: Using curl to send command including JSON of properties of the image to GNS3 server</p>
+    <pre style="background-color: #000; color: #fff">
+curl -u [your-GNS3-server-username]:[your-password] -i -X POST "http://localhost:3080/v2/templates" -d '{"adapter_type": "virtio-net-pci", "adapters": [your-number-adapters],  "boot_priority": "c", "builtin": false, "category": "guest", "console_type": "vnc", "default_name_format": "{name}-{0}", "hda_disk_image": "Ubuntu[your-ubuntu-version].vmdk", "hda_disk_interface": "virtio", "name": "Ubuntu Desktop Guest [your-ubuntu-version]", "compute_id": "local", "platform": "", "port_name_format": "eth{0}", "qemu_path": "/usr/bin/qemu-system-x86_64", "ram": 2048, "symbol": ":/symbols/classic/qemu_guest.svg", "template_type": "qemu"}'
+    </pre>
+    </div>
+
+<style>
+    pre {
+        font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+        margin-bottom: 10px;
+        overflow: auto;
+        width: auto;
+        padding: 5px;
+        font-size: 20px;
+        border: 2px solid grey;
+        background-color: #eee;
+        width: 650px !ie7;
+        padding-bottom: 20px !ie7;
+        max-height: 600px;
+
+    }
+</style>

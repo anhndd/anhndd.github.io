@@ -1,17 +1,18 @@
-<h1>Quickly Enable Hostpot Using Terminal</h1>
+
+<h1>Send and Receive multiple files using Netcat</h1>
 
 <div>
-    <p>Here is the command to run Hostpot in the terminal </p>
-    <pre style="background-color: #000; color: #fff">
-nmcli device wifi hotspot con-name [your-hostpot-name] ssid [your-hostpot-name] password [your-hostpot-password]
-    </pre>
-</div>
+<p>Step 1: Open listener on receiver machine</p>
+<pre style="background-color: #000; color: #fff">
+nc -l -p 9999 | tar xzf
+</pre>
+</div>	
 
 <div>
-    <p>To quickly close the Hotspot, kill it </p>
-    <pre style="background-color: #000; color: #fff">
-nmcli connection down $(nmcli connection show --active | awk '{print $2}')
-    </pre>
+<p>Step 2: Sending files on sender machine </p>
+<pre style="background-color: #000; color: #fff">
+tar czf - [Name of file or *(all)] | nc -w 5 [IP address of the receiver] 9999
+</pre>
 </div>
 
 
